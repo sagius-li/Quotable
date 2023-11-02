@@ -1,0 +1,53 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div fxFlex="auto"></div>
+  <div fxFlex="800px">
+    <div
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxLayoutGap="20px"
+      class="search-mask"
+    >
+      <mat-form-field fxFlex="auto" appearance="fill">
+        <mat-label>Category</mat-label>
+        <input matInput [value]="category" />
+      </mat-form-field>
+      <mat-form-field fxFlex="100px" appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input matInput type="number" [value]="quantity" />
+      </mat-form-field>
+      <button
+        fxFlex="none"
+        mat-stroked-button
+        color="primary"
+        (click)="onSearch()"
+      >
+        Search
+      </button>
+    </div>
+    <div *ngIf="errorMessage; else noError" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <ng-template #noError>
+      <div *ngIf="category && quotes.length > 0">
+        <div fxLayout="row" fxLayoutAlign="start center" class="category">
+          <div [innerHtml]="'Category: ' + category | safeHtml"></div>
+          <div fxFlex="auto"></div>
+          <mat-checkbox [(ngModel)]="showAuthorAndTags"
+            >Show author and tags</mat-checkbox
+          >
+        </div>
+        <div *ngFor="let quote of quotes">
+          <div class="quote-entry">
+            <div *ngIf="showAuthorAndTags" class="quote-header">
+              {{ quote.author }} talked about {{ quote.tags.join(", ") }}
+            </div>
+            <div class="quote-content">
+              {{ quote.content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div fxFlex="auto"></div>
+</div>

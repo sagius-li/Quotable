@@ -1,0 +1,45 @@
+.error-message {
+  color: crimson;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.search-mask {
+  margin-top: 20px;
+    background-color: #faebd720;
+    padding: 30px 20px 10px 20px;
+}
+
+.category {
+  font-size: 18px;
+  color: slategray;
+  margin: 20px 0;
+}
+
+.quote-entry {
+  margin: 10px 0;
+  padding: 10px;
+  border-left: 3px solid burlywood;
+  border-radius: 5px;
+  background-color: #faebd720;
+  font-size: 18px;
+  cursor: pointer;
+}
+.quote-entry:hover{
+  background-color: #faebd750;
+}
+
+.quote-entry.quote-selected {
+  background-color: #faebd7f0;
+}
+
+.quote-header {
+  font-size: .85em;
+  color: darkgray;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.quote-content {
+  color: darkslategray;
+}
